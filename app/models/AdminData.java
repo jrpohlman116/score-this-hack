@@ -7,6 +7,7 @@ import play.data.validation.Constraints;
 import io.ebean.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class AdminData extends Model{
@@ -23,7 +24,7 @@ public class AdminData extends Model{
     }
 
 
-    @Constraints.Required
+    @Id @Constraints.Required
     public String username;
     @Constraints.Required
     public String password;
