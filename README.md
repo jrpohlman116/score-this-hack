@@ -16,11 +16,11 @@ And then go to http://localhost:9000 to see the running web application.
 
 - HomeController.java:
 
-Handles the judge side of this application.
+  Handles the judge side of this application.
 
 - AdminController.java:
 
-Handles the administrator side of this application. This includes logging in, registering the user, and accessing results after they have been submitted.
+  Handles the administrator side of this application. This includes logging in, registering the user, and accessing results after they have been submitted.
 
 ## Components
 
