@@ -11,14 +11,14 @@
                             @helper.form(action= helper.CSRF(routes.AdminController.savePresenter(username))){
                                 <fieldset>
                                     <div class="form-block w-form">
-                                        <div class="field-label-2">
-                                        @helper.input(presentersForm("Presenter's Full Name")){ (id, name, value, args) =>
-                                            <input class="w-input" placeholder="" name="username" type="text">
+                                        <div class="field-label-7">
+                                        @helper.input(presentersForm("Create Presenter")){ (id, name, value, args) =>
+                                            <input class="w-input" placeholder="Presenter's Full Name" name="username" type="text">
                                         }
                                         </div>
                                     </div>
 
-                                    <input class="submit-button w-button" type="submit" value="Submit">\
+                                    <input class="button admin w-button" type="submit" value="Submit">
                                 </fieldset>
                             }
                             </form>
@@ -28,9 +28,9 @@
                                     @helper.form(action= helper.CSRF(routes.AdminController.viewPresenter(username))){
                                         <fieldset>
                                             <div class="form-group">
-                                                <div class="voterfieldlabel">
+                                                <div class="field-label-7">
                                                 @helper.input(presentersForm("Select Presenter")){ (id, name, value, args) =>
-                                                    <select name="presenter">
+                                                    <select name="presenter" class="field-label-2">
                                                         <option value=selectPresenter>Select Presenter</option>
                                                         @for(presenter <- presenters) {
                                                             <option value=@presenter.username>@presenter.username</option>
@@ -40,7 +40,7 @@
                                                 </div>
                                             </div>
 
-                                            <input class="button w-button" type="submit" value="Submit">
+                                            <input class="button admin w-button" type="submit" value="Submit">
                                         </fieldset>
                                     }
                                 </form>
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <div class="column-2 w-col w-col-6">
-                        <h3>Scores</h3>
+                        <h3 class="welcome-message admin">Scores</h3>
                     </div>
                 </div>
             </div>

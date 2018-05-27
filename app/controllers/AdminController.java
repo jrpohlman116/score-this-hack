@@ -63,6 +63,8 @@ public class AdminController extends Controller {
     public Result save(){
         Form<AdminID> registrationForm = formFactory.form(AdminID.class).bindFromRequest();
         AdminID admin = registrationForm.get();
+        System.out.println(admin.password);
+        System.out.println(admin.confPassword + " CONFPASSWORD");
 
         if (admin.password.equals(admin.confPassword)){
             AdminData loginCredentials = new AdminData();
