@@ -4,9 +4,10 @@
 # --- !Ups
 
 create table admin_data (
-  username                      varchar(255),
+  username                      varchar(255) not null,
   password                      varchar(255),
-  privilege                     varchar(255)
+  privilege                     varchar(255),
+  constraint pk_admin_data primary key (username)
 );
 
 create table competition_results (
