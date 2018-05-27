@@ -48,8 +48,24 @@
                             </div>
                         </div>
                     </div>
-                    <div class="column-2 w-col w-col-6">
+                    <div class="w-col w-col-6">
                         <h3 class="welcome-message admin">Scores</h3>
+                        <ul class="w-list-unstyled">
+                            <li>
+                                <div class="w-row">
+                                    <div class="w-col w-col-9 welcome-message admin-bold">Presenter</div>
+                                    <div class="w-col w-col-3 welcome-message admin-bold">Total Score</div>
+                                </div>
+                            </li>
+                        @for(person <- results) {
+                            <li>
+                                <div class="w-row">
+                                    <div class="w-col w-col-9 field-label-8">@person.presenter</div>
+                                    <div class="w-col w-col-3 field-label-8">@person.uiDesign</div>
+                                </div>
+                            </li>
+                        }
+                        </ul>
                     </div>
                 </div>
             </div>

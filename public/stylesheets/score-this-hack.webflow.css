@@ -139,6 +139,11 @@
   color: #fff;
 }
 
+.welcome-message.admin-bold {
+    color: #fff;
+    font-weight: bold;
+}
+
 .field-label {
   display: inline-block;
 }
@@ -341,6 +346,12 @@
 .field-label-7 {
   color: white;
 }
+
+.field-label-8 {
+    color: #02264c;
+}
+
+
 
 .form-block-2 {
   width: 100%;
