@@ -1,0 +1,30 @@
+@(message: String, style: String = "java", userForm : Form[Users])
+@import helper._
+
+    <div class="section">
+        <div class="container w-container">
+            <h1 class="heading">Welcome!</h1>
+            <div class="startpagetext">Enter your name to get started.</div>
+                <div class="w-form">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            @helper.form(action= helper.CSRF(routes.HomeController.startVoting())){
+                                <fieldset>
+                                    <div class="form-group">
+                                    @helper.input(userForm("Judge's Name")){ (id, name, value, args) =>
+                                        <input class="form-control" placeholder="Enter Full Name" name="username" type="text">
+                                    }
+                                    </div>
+
+                                    <input class="btn btn-lg btn-success btn-block" type="submit" value="Submit">
+                                </fieldset>
+                            }
+                        </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+    </div>
+
+

@@ -1,0 +1,46 @@
+@(adminForm : Form[AdminID])
+@import helper._
+
+    @main("Administrator"){
+        <div class="section-3">
+            <div class="container-2 w-container">
+                <div class="div-block">
+                    <div class="form-block w-form">
+                        <div class="panel-body">
+                            <h1 class="heading-2">Administrator Registration</h1>
+                            @helper.form(action= helper.CSRF(routes.AdminController.save())){
+                                <fieldset>
+                                    <div class="form-block w-form">
+                                        <div class="field-label-2">
+                                        @helper.input(adminForm("Username")){ (id, name, value, args) =>
+                                            <input class="w-input" placeholder="" name="username" type="text">
+                                        }
+                                        </div>
+                                    </div>
+
+                                    <div class="form-block w-form">
+                                        <div class="field-label-2">
+                                        @helper.input(adminForm("Password")){ (id, name, value, args) =>
+                                            <input class="w-input" placeholder="" name="password" type="password" value="">
+                                        }
+                                        </div>
+                                    </div>
+
+                                    <div class="form-block w-form">
+                                        <div class="field-label-2">
+                                        @helper.input(adminForm("Confirm Password")){ (id, name, value, args) =>
+                                            <input class="w-input" placeholder="" name="confpassword" type="password" value="">
+                                        }
+                                        </div>
+                                    </div>
+
+                                    <input class="submit-button w-button" type="submit" value="Submit">\
+                                </fieldset>
+                            }
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }

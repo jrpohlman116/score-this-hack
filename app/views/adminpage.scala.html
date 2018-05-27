@@ -1,0 +1,57 @@
+@(username: String, presentersForm: Form[Users], presenters: List[Users], results: List[CompetitionResults])
+
+    @main("Administrator"){
+        <div class="section-2-copy">
+            <div class="votercontainer w-container">
+                <h1 class="welcome-message admin">Welcome, @username!</h1>
+                <div class="welcome-message admin">Administrators have the ability to registration competitions and presenters. During the competition, an admin is able to view the results and look at each presenter&#x27;s individual comments. </div>
+                <div class="row-2 w-row">
+                    <div class="w-col w-col-6">
+                        <div class="w-form">
+                            @helper.form(action= helper.CSRF(routes.AdminController.savePresenter(username))){
+                                <fieldset>
+                                    <div class="form-block w-form">
+                                        <div class="field-label-2">
+                                        @helper.input(presentersForm("Presenter's Full Name")){ (id, name, value, args) =>
+                                            <input class="w-input" placeholder="" name="username" type="text">
+                                        }
+                                        </div>
+                                    </div>
+
+                                    <input class="submit-button w-button" type="submit" value="Submit">\
+                                </fieldset>
+                            }
+                            </form>
+                        </div>
+                        <div class="w-form">
+                            <div class="form-group">
+                                    @helper.form(action= helper.CSRF(routes.AdminController.viewPresenter(username))){
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <div class="voterfieldlabel">
+                                                @helper.input(presentersForm("Select Presenter")){ (id, name, value, args) =>
+                                                    <select name="presenter">
+                                                        <option value=selectPresenter>Select Presenter</option>
+                                                        @for(presenter <- presenters) {
+                                                            <option value=@presenter.username>@presenter.username</option>
+                                                        }
+                                                    </select>
+                                                }
+                                                </div>
+                                            </div>
+
+                                            <input class="button w-button" type="submit" value="Submit">
+                                        </fieldset>
+                                    }
+                                </form>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-2 w-col w-col-6">
+                        <h3>Scores</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }

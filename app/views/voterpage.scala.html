@@ -1,0 +1,96 @@
+@(judgeName: String, successMessage: String, presenters : List[Users], competitionForm : Form[CompetitionResults])
+@import helper._
+
+@main("Score Page"){
+    <div class="votersection">
+        <div class="votercontainer w-container">
+            <h1 class="welcome-message header">Welcome, @judgeName!</h1>
+            <div class="welcome-message">We hope you enjoy all the applications presented while at the competition. Please score wisely and be courteous in the comments. All of our presenters appreciate good, constructive feedback. </div>
+            <div class="welcome-message">@successMessage</div>
+            <div class="voterlinebreak"></div>
+                <div class="form-block-2 w-form">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            @helper.form(action= helper.CSRF(routes.HomeController.score(judgeName))){
+                                <fieldset>
+                                    <div class="form-group">
+                                        <div class="voterfieldlabel">
+                                        @helper.input(competitionForm("Presenter")){ (id, name, value, args) =>
+                                            <select name="presenter">
+                                                <option value=selectPresenter>Select Presenter</option>
+                                                @for(presenter <- presenters) {
+                                                    <option value=@presenter.username>@presenter.username</option>
+                                                }
+                                            </select>
+                                        }
+                                        </div>
+                                    </div>
+                                    <div class="voterlinebreak"></div>
+                                    <div class="panel-heading">
+                                        <h3 class="voterfieldlabel">Scoring</h3>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="radio-button-field w-radio">
+                                        @inputRadioGroup(
+                                            competitionForm("User Interface/Design"),
+                                            options = options("1" -> "1", "2" -> "2", "3" -> "3", "4" -> "4", "5" -> "5", "6" -> "6", "7" -> "7", "8" -> "8", "9" -> "9", "10" -> "10")
+                                        )
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="radio-button-field w-radio">
+                                        @inputRadioGroup(
+                                            competitionForm("userExperience"),
+                                            options = options("1" -> "1", "2" -> "2", "3" -> "3", "4" -> "4", "5" -> "5", "6" -> "6", "7" -> "7", "8" -> "8", "9" -> "9", "10" -> "10"),
+                                            '_label -> "User Experience"
+                                        )
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="radio-button-field w-radio">
+                                        @inputRadioGroup(
+                                            competitionForm("Practicality"),
+                                            options = options("1" -> "1", "2" -> "2", "3" -> "3", "4" -> "4", "5" -> "5")
+                                        )
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="radio-button-field w-radio">
+                                        @inputRadioGroup(
+                                            competitionForm("Originality"),
+                                            options = options("1" -> "1", "2" -> "2", "3" -> "3", "4" -> "4", "5" -> "5")
+                                        )
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="radio-button-field w-radio">
+                                        @inputRadioGroup(
+                                            competitionForm("Presentation"),
+                                            options = options("1" -> "1", "2" -> "2", "3" -> "3", "4" -> "4", "5" -> "5")
+                                        )
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="voterfieldlabel">
+                                            @helper.input(competitionForm("Comments")){ (id, name, value, args) =>
+                                                <input class="form-control" placeholder="" name="comments" type="text">
+                                            }
+                                        </div>
+                                    </div>
+
+                                    <input class="button w-button" type="submit" value="Submit">
+                                </fieldset>
+                            }
+                        </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+}
